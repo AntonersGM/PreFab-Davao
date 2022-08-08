@@ -1,91 +1,89 @@
 import Link from 'next/link';
-import React, {useState} from 'react';
-import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+import React, { useState, useEffect } from 'react';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const [color, setColor] = useState('transparent')
-    const [textColor, setTextColor] = useState('white')
+  const [nav, setNav] = useState(false);
+  const [color, setColor] = useState('transparent');
+  const [textColor, setTextColor] = useState('black');
 
-    const handleNav = () => {
-        setNav(!true)
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 90) {
+        setColor('#ffffff');
+        setTextColor('#000000');
+      } else {
+        setColor('transparent');
+        setTextColor('#ffffff');
+      }
     };
+    window.addEventListener('scroll', changeColor);
+  }, []);
 
+  return (
+    <div
+      style={{ backgroundColor: `${color}` }}
+      className='fixed top-0 left-0 z-10 w-full duration-300 ease-in'
+    >
+      <div className='max-w-[1240px] m-3 flex justify-around items-center p-4 text-white grid-cols-11'>
+        <button href='/'>
+          <h1 style={{ color: `${textColor}` }} className='text-4xl font-bold '>
+            Prefab
+          </h1>
+        </button>
+        <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
+          <li className='p-4'>
+            <button href='/shop' className='hover:underline'>SHOP</button>
+          </li>
+          <li className='p-4'>
+            <button href='/about' className='hover:underline'>ABOUT</button>
+          </li>
+          <li className='p-4'>
+            <button href='/stores' className='hover:underline'>STORES</button>
+          </li>
+          <li className='p-4'>
+            <button href='/contact' className='hover:underline'>FAQS</button>
+          </li>
+        </ul>
 
-
-
-    return (
-        <div style={{backgroundColor: '${color}'}} className='fixed top-0 left-0 z-10 w-full duration-300 ease-in'>
-            <div className='max-w-[1240px] m-auto flex justify-between 
-            items-center p-4 text-black'>
-                <Link href='/'>
-                <h1 style={{color: '${textColor}'}}className='text-4xl font-bold'>PREFAB</h1>
-                </Link>
-                <ul className='hidden sm:flex'>
-                    <li className='p-4'>
-                        <Link href='/'>SHOP</Link>
-                    </li>
-                </ul>
-                <ul className='hidden sm:flex'>
-                    <li className='p-4'>
-                        <Link href='/'>ABOUT</Link>
-                    </li>
-                </ul>
-                <ul className='hidden sm:flex'>
-                    <li className='p-4'>
-                        <Link href='/'>STORES</Link>
-                    </li>
-                </ul>
-                <ul className='hidden sm:flex'>
-                    <li className='p-4'>
-                        <Link href='/'>FAQ</Link>
-                    </li>
-                </ul>
-
-
-
-
-
-
-
-
-                {/* Mobile Button*/}
-                <div onClick={handleNav} className='z-10 block sm:hidden '>    
-                    {nav ? <AiOutlineClose size={20} style={{color: '${textColor}'}}/> 
-                    : <AiOutlineMenu size={20} style={{color: '${textColor}'}}/>}
-                </div>
-                {/*Mobile Menu*/}
-                <div className= { nav ? 'absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center w-full h-screen text-center duration-300 ease-in bg-white sm:hidden'
-                : 'absolute top-0 bottom-0 left-[-100%] right-0 flex items-center justify-center w-full h-screen text-center duration-300 ease-in bg-white sm:hidden'}
-                >
-                    <ul>
-                    <li className='p-4 text-4xl hover:text-gray-500 sm:flex'>
-                        <Link href='/shop'>SHOP</Link>
-                    </li>
-                </ul>
-                <ul>
-                    <li className='p-4 text-4xl hover:text-gray-500 sm:flex'>
-                        <Link href='/about'>ABOUT</Link>
-                    </li>
-                </ul>
-                <ul>
-                    <li className='p-4 text-4xl hover:text-gray-500 sm:flex'>
-                        <Link href='/stores'>STORES</Link>
-                    </li>
-                </ul>
-                <ul>
-                    <li className='p-4 text-4xl hover:text-gray-500 sm:flex'>
-                        <Link href='/faq'>FAQ</Link>
-                    </li>
-                </ul>
-                    
-                </div>
-
-
-
-            </div>
+        {/* Mobile Button */}
+        <div onClick={handleNav} className='z-10 block sm:hidden'>
+          {nav ? (
+            <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
+          ) : (
+            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
+          )}
         </div>
-    )
-}
+        {/* Mobile Menu */}
+        <div
+          className={
+            nav
+              ? 'sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+              : 'sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300'
+          }
+        >
+          <ul>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/'>SHOP</Link>
+            </li>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/#gallery'>ABOUT</Link>
+            </li>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/work'>STORES</Link>
+            </li>
+            <li onClick={handleNav} className='p-4 text-4xl hover:text-gray-500'>
+              <Link href='/contact'>FAQ</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Navbar
+export default Navbar;
