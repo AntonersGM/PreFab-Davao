@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+.custom-img {
+    background-image: url("https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.6435-9/176203215_121922406664820_3808355155021613726_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=e3f864&_nc_eui2=AeHbi9gRBDb1rJtum92WgAM1IqRcRMjilbUipFxEyOKVtcsMGqqP3nql0yZF9b6kke4DnAB17abiCe_mYML-LTtK&_nc_ohc=8_ltSzibFA4AX_TlUJ3&_nc_ht=scontent.fdvo2-2.fna&oh=00_AT_olCqPGCLvukNQH269TWzuYZIO2vFTABH8jZXMXIzdlA&oe=6318210F");
+}
