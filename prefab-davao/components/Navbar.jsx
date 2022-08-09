@@ -19,18 +19,18 @@ const Navbar = () => {
       style={{ backgroundColor: `${color}` }}
       className='fixed top-0 left-0 z-10 w-full duration-300 ease-in'
     >
-      <div className='flex items-center w-full grid-cols-11 p-4 m-auto bg-white border-2 border-solid justify-evenly bg-opacity-60 '>
+      <div className='flex items-center w-full grid-cols-11 p-4 m-auto bg-white border-2 border-solid justify-evenly bg-opacity-70'>
         <button href='/'>
           <h1 style={{ color: `${textColor}` }} className='text-4xl font-bold hover:float-left'>
             Prefab
           </h1>
         </button>
         <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
-          <li className='p-4'>
-            <button href='/shop' className='hover:underline'>SHOP</button>
+          <li className='p-4 hover:underline'>
+            <Link href='/shop'>SHOP</Link>
           </li>
-          <li className='p-4'>
-            <button href='/about' className='ml-15 hover:underline'>ABOUT </button>
+          <li className='p-4 ml-15 hover:underline'>
+            <Link href='/about' className='ml-15 '>ABOUT </Link>
           </li>
           <li className='p-4'>
             <button href='/stores' className='ml-15 hover:underline'>STORES</button>
@@ -41,10 +41,10 @@ const Navbar = () => {
           <li className='float-right p-4 ml-20' class='float-right ml-20 p-4'>
             <button href='/search'><AiOutlineSearch/></button>
           </li>
-          <li className='float-right p-4 ml-10' class=' float-right p-4'>
+          <li className='float-right p-4 ml-2' class=' float-right p-4'>
             <button href='/user'><AiOutlineUser/></button>
           </li>
-          <li className='p-4 ml-10 ' class='mfloat-right p-4'>
+          <li className='p-4 ml-2 ' class='mfloat-right p-4'>
             <button href='/cart'><AiOutlineShoppingCart/></button>
           </li>
         </ul>
