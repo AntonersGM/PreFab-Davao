@@ -1,18 +1,28 @@
-import React from 'react'
+import Image from 'next/Image'
+import React, { useState } from 'react'
 import {SliderData} from '../components/SliderData'
 
 const  Slider = ({slides}) => {
+const [current, setCurrent] = useState(0)
+const length = slides.length
+    
     return(
         <div id='gallery'>
-            <h1>Gallery</h1>
+         
             <div>
                 {SliderData.map((slide, index) => {
-                    return <img
-                    src={slide.image} alt='/' 
-                    width='1440' 
-                    height='600' 
-                    objectFit='cover'/>
-                    
+                    return (
+                        <div key={index} className=''>
+                            <img
+                            src={slide.image}
+                            alt='/' 
+                            width='1440'
+                            height='600'
+                            objectFit='cover'
+                            />  
+                        </div>
+
+                    );
                 })}
             </div>
         </div>

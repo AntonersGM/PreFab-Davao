@@ -7,7 +7,7 @@ const nextConfig = {
 module.exports = {
   images: {
     domains: [
-      'image.unsplas.com'
+      'https://www.facebook.com/PrefabDavao/photos'
     ]
   }
 }

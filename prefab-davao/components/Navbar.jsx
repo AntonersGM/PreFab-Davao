@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
-import { AiOutlineMenu, AiOutlineClose, AiOutlineSearch, AiOutlineUser, AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineMenu, AiOutlineClose, AiOutlineSearch, AiOutlineUser, AiOutlineShoppingCart, AiOutlineAccountBook, AiOutlineFacebook } from 'react-icons/ai';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
     setNav(!nav);
   };
 
- 
+
 
   {/*Website View */}
   return (
@@ -32,20 +32,20 @@ const Navbar = () => {
           <li className='p-4 ml-15 hover:underline'>
             <Link href='/about' className='ml-15 '>ABOUT </Link>
           </li>
-          <li className='p-4'>
-            <button href='/stores' className='ml-15 hover:underline'>STORES</button>
+          <li className='p-4 ml-15 hover:underline'>
+            <Link href='/stores'>STORES</Link>
           </li>
-          <li className='p-4'>
-            <button href='/contact' className='mr-20 ml-15 hover:underline'>FAQ</button>
+          <li className='p-4 mr-20 ml-15 hover:underline'>
+            <Link href='/contact'>FAQ</Link>
           </li>
           <li className='float-right p-4 ml-20' class='float-right ml-20 p-4'>
-            <button href='/search'><AiOutlineSearch/></button>
+            <Link href='/search'><AiOutlineSearch/></Link>
           </li>
           <li className='float-right p-4 ml-2' class=' float-right p-4'>
-            <button href='/user'><AiOutlineUser/></button>
+            <Link href='/user'><AiOutlineUser/></Link>
           </li>
           <li className='p-4 ml-2 ' class='mfloat-right p-4'>
-            <button href='/cart'><AiOutlineShoppingCart/></button>
+            <Link href='/cart'><AiOutlineShoppingCart/></Link>
           </li>
         </ul>
         
