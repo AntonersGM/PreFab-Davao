@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className='flex items-center w-full grid-cols-11 p-4 m-auto bg-white border-2 border-solid justify-evenly bg-opacity-70'>
         <button href='/'>
           <h1 style={{ color: `${textColor}` }} className='text-4xl font-bold hover:float-left'>
-            Prefabs
+            Prefab
           </h1>
         </button>
         <ul style={{ color: `${textColor}` }} className='hidden sm:flex'>
